@@ -34,9 +34,18 @@ const usernames = [
     'username9',
 ];
 
-const pickSimpleServer = (username, server) => {
+const pickSimpleServer = (username, servers) => {
     const hash = utils.hashString(username);
     return servers[hash % servers.length];
 };
 
-const pickRendezvousHashing = () => {};
+const pickRendezvousHashing = (username, servers) => {
+    let maxServer = null;
+    let maxScore = null;
+    for (const server of servers) {
+        const score = utils.computeScore(username, server);
+        if (maxScore === null || score > maxScore) {
+            maxScore = score;
+        }
+    }
+};
