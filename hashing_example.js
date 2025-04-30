@@ -46,6 +46,10 @@ const pickRendezvousHashing = (username, servers) => {
         const score = utils.computeScore(username, server);
         if (maxScore === null || score > maxScore) {
             maxScore = score;
+            maxServer = server;
         }
     }
+    return maxServer;
 };
+
+console.log('Simple Hashing Server-Selection-Strategy');
