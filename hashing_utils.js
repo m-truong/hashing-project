@@ -12,7 +12,7 @@ const hashString = (string) => {
 
 const computeScore = (username, server) => {
     const usernameHash = hashString(username);
-    const serverHash = hashString(string);
+    const serverHash = hashString(server);
     return (usernameHash * 13 + serverHash * 11) % 67;
 };
 
