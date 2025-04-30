@@ -16,3 +16,5 @@ const computeScore = (username, server) => {
     return (usernameHash * 13 + serverHash * 11) % 67;
 };
 
+module.exports.hashString = hashString;
+module.exports.computeScore = computeScore;
