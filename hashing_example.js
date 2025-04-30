@@ -33,3 +33,10 @@ const usernames = [
     'username8',
     'username9',
 ];
+
+const pickSimpleServer = (username, server) => {
+    const hash = utils.hashString(username);
+    return servers[hash % servers.length];
+};
+
+const pickRendezvousHashing = () => {};
