@@ -53,3 +53,9 @@ const pickRendezvousHashing = (username, servers) => {
 };
 
 console.log('Simple Hashing Server-Selection-Strategy');
+for (const username of usernames) {
+    const server1 = pickServerSimple(username, serverSet1);
+    const server2 = pickServerSimple(username, serverSet2);
+    const serversAreEqual = server1 === server2;
+    console.log(`${username}: ${server1} => ${server2} | equal: ${serversAreEqual}`);
+}
