@@ -34,12 +34,12 @@ const usernames = [
     'username9',
 ];
 
-const pickSimpleServer = (username, servers) => {
+const pickServerSimple = (username, servers) => {
     const hash = utils.hashString(username);
     return servers[hash % servers.length];
 };
 
-const pickRendezvousHashing = (username, servers) => {
+const pickServerRendezvous = (username, servers) => {
     let maxServer = null;
     let maxScore = null;
     for (const server of servers) {
@@ -56,6 +56,14 @@ console.log('Simple Hashing Server-Selection-Strategy');
 for (const username of usernames) {
     const server1 = pickServerSimple(username, serverSet1);
     const server2 = pickServerSimple(username, serverSet2);
+    const serversAreEqual = server1 === server2;
+    console.log(`${username}: ${server1} => ${server2} | equal: ${serversAreEqual}`);
+}
+
+console.log('\nRendezvous Hashing Strategy');
+for (const username of usernames) {
+    const server1 = pickServerRendezvous(username, serverSet1);
+    const server2 = pickServerRendezvous(username, serverSet2);
     const serversAreEqual = server1 === server2;
     console.log(`${username}: ${server1} => ${server2} | equal: ${serversAreEqual}`);
 }
